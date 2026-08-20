@@ -2,19 +2,25 @@
 <html lang="es">
 
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Menú del Restaurante</title>
 
-    <meta name="description" content="Restaurante italiano - Menú y pedidos">
-    <meta name="author" content="Tu nombre">
+    <meta name="description"
+          content="Restaurante italiano - Menú y pedidos">
+
+    <meta name="author"
+          content="Tu nombre">
+
 
     <style>
 
-        /* =========================
+        /* =====================================
            CONFIGURACIÓN GENERAL
-        ========================= */
+        ====================================== */
 
         * {
             box-sizing: border-box;
@@ -23,7 +29,7 @@
         body {
             margin: 0;
             font-family: Georgia, serif;
-            background: #f8f6f0;
+            background-color: #f8f6f0;
             color: #333;
         }
 
@@ -39,446 +45,846 @@
         }
 
 
-        /* =========================
-           PANTALLA DE LOGIN
-        ========================= */
+        /* =====================================
+           LOGIN
+        ====================================== */
 
         #loginScreen {
+
             min-height: 100vh;
+
             display: flex;
+
             justify-content: center;
+
             align-items: center;
-            background: #f8f6f0;
+
+            background-color: #f8f6f0;
         }
 
+
         .login-box {
+
             width: 400px;
+
             max-width: 90%;
-            background: white;
+
+            background-color: white;
+
             padding: 40px;
+
             border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+
+            box-shadow:
+                0 10px 30px rgba(0,0,0,0.15);
+
             text-align: center;
         }
 
+
         .login-box h1 {
+
             color: #b52b35;
+
             font-size: 38px;
+
             margin-bottom: 5px;
         }
 
+
         .login-box h2 {
+
             color: #16884d;
+
             margin-top: 0;
         }
 
+
         .login-box p {
+
             color: #666;
         }
 
+
         .login-box input {
+
             width: 100%;
+
             padding: 13px;
+
             margin: 8px 0;
+
             border: 1px solid #ccc;
+
             border-radius: 7px;
+
             font-size: 15px;
         }
 
+
         .main-button {
+
             width: 100%;
+
             padding: 13px;
+
             margin-top: 15px;
+
             border: none;
+
             border-radius: 7px;
-            background: #b52b35;
+
+            background-color: #b52b35;
+
             color: white;
+
             font-size: 16px;
+
             font-weight: bold;
         }
+
 
         .main-button:hover {
-            background: #8e2028;
+
+            background-color: #8e2028;
         }
 
+
         .register-button {
+
             background: none;
+
             border: none;
+
             color: #16884d;
+
             margin-top: 15px;
+
             font-weight: bold;
         }
 
 
-        /* =========================
+        /* =====================================
            RESTAURANTE
-        ========================= */
+        ====================================== */
 
         #restaurant {
+
             display: none;
         }
 
+
         header {
+
             padding: 35px 60px 15px;
+
             position: relative;
         }
 
+
         header h1 {
+
             color: #b52b35;
+
             font-size: 48px;
+
             margin: 0;
         }
 
+
         header h2 {
+
             color: #16884d;
+
             font-size: 32px;
+
             margin: 5px 0;
         }
 
+
         header p {
+
             color: #16884d;
+
             font-size: 18px;
         }
 
+
+        /* =====================================
+           NAVEGACIÓN
+        ====================================== */
+
         nav {
+
             padding: 15px 60px;
+
             border-bottom: 1px solid #ddd;
+
             display: flex;
+
             gap: 20px;
+
             align-items: center;
         }
 
+
         nav button {
+
             background: none;
+
             border: none;
+
             color: #b52b35;
+
             font-weight: bold;
+
             font-size: 16px;
         }
 
+
+        nav button:hover {
+
+            color: #16884d;
+        }
+
+
         .cart-button {
+
             margin-left: auto;
-            background: #16884d !important;
+
+            background-color: #16884d !important;
+
             color: white !important;
+
             padding: 10px 18px;
+
             border-radius: 8px;
         }
 
 
-        /* =========================
+        /* =====================================
            MENÚ
-        ========================= */
+        ====================================== */
+
+        #menu {
+
+            display: block;
+        }
+
 
         .menu-container {
+
             max-width: 1150px;
+
             margin: auto;
+
             padding: 30px;
+
             position: relative;
         }
 
+
         .menu-content {
+
             width: 52%;
         }
 
+
         .menu-content h2 {
+
             color: #b52b35;
+
             font-size: 28px;
         }
 
+
         .product {
-            background: white;
+
+            background-color: white;
+
             margin: 20px 0;
+
             padding: 20px;
+
             border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+
+            box-shadow:
+                0 4px 12px rgba(0,0,0,0.08);
         }
 
+
         .product h3 {
+
             color: #b52b35;
+
             margin: 0 0 8px;
+
             font-size: 22px;
         }
 
+
         .price {
+
             float: right;
+
             color: #16884d;
+
             font-size: 20px;
         }
 
+
         .product p {
+
             line-height: 1.5;
         }
 
+
         .add-button {
-            background: #16884d;
+
+            background-color: #16884d;
+
             color: white;
+
             border: none;
+
             padding: 10px 18px;
+
             border-radius: 7px;
+
             font-weight: bold;
         }
 
+
         .add-button:hover {
-            background: #0e6939;
+
+            background-color: #0e6939;
         }
 
 
-        /* =========================
+        /* =====================================
            PIZZAS
-        ========================= */
+        ====================================== */
 
         .pizza-large {
+
             position: absolute;
+
             width: 430px;
+
             height: 500px;
+
             object-fit: cover;
+
             border-radius: 50%;
+
             right: -50px;
+
             top: 20px;
         }
 
+
         .pizza-small {
+
             width: 260px;
+
             height: 260px;
+
             object-fit: cover;
+
             border-radius: 50%;
+
             margin: 30px 0;
         }
 
 
-        /* =========================
+        /* =====================================
+           CONTACTO
+        ====================================== */
+
+        #contact {
+
+            display: none;
+
+            max-width: 1000px;
+
+            margin: 40px auto;
+
+            padding: 30px;
+
+            text-align: center;
+        }
+
+
+        #contact h2 {
+
+            color: #b52b35;
+
+            font-size: 38px;
+
+            margin-bottom: 10px;
+        }
+
+
+        #contact > p {
+
+            color: #555;
+
+            font-size: 17px;
+
+            margin-bottom: 30px;
+        }
+
+
+        .contact-card {
+
+            background-color: white;
+
+            display: inline-block;
+
+            vertical-align: top;
+
+            width: 42%;
+
+            min-height: 180px;
+
+            margin: 12px;
+
+            padding: 25px;
+
+            border-radius: 12px;
+
+            box-shadow:
+                0 5px 15px rgba(0,0,0,0.10);
+        }
+
+
+        .contact-card h3 {
+
+            color: #16884d;
+
+            font-size: 21px;
+        }
+
+
+        .contact-card p {
+
+            line-height: 1.5;
+
+            color: #444;
+        }
+
+
+        .contact-button,
+        .social-button {
+
+            display: inline-block;
+
+            text-decoration: none;
+
+            background-color: #b52b35;
+
+            color: white;
+
+            padding: 10px 18px;
+
+            border-radius: 7px;
+
+            margin-top: 8px;
+
+            font-weight: bold;
+        }
+
+
+        .social-button {
+
+            background-color: #16884d;
+        }
+
+
+        .contact-button:hover {
+
+            background-color: #8e2028;
+        }
+
+
+        .social-button:hover {
+
+            background-color: #0e6939;
+        }
+
+
+        /* =====================================
            CARRITO
-        ========================= */
+        ====================================== */
 
         #cartPanel {
+
             display: none;
+
             position: fixed;
+
             top: 0;
+
             right: 0;
+
             width: 430px;
+
             max-width: 95%;
+
             height: 100vh;
-            background: white;
+
+            background-color: white;
+
             z-index: 1000;
+
             padding: 25px;
-            box-shadow: -5px 0 20px rgba(0,0,0,0.2);
+
+            box-shadow:
+                -5px 0 20px rgba(0,0,0,0.2);
+
             overflow-y: auto;
         }
 
+
         #cartPanel h2 {
+
             color: #b52b35;
         }
 
+
         .cart-item {
+
             border-bottom: 1px solid #ddd;
+
             padding: 15px 0;
         }
 
+
         .cart-item h3 {
+
             margin: 0;
         }
 
+
         .quantity-controls {
+
             display: flex;
+
             align-items: center;
+
             gap: 10px;
+
             margin: 10px 0;
         }
 
+
         .quantity-controls button {
+
             width: 30px;
+
             height: 30px;
+
             border: none;
-            background: #16884d;
+
+            background-color: #16884d;
+
             color: white;
+
             border-radius: 5px;
         }
+
 
         .delete-button {
-            background: #b52b35;
+
+            background-color: #b52b35;
+
             color: white;
+
             border: none;
+
             padding: 7px 12px;
+
             border-radius: 5px;
         }
 
+
         .cart-total {
+
             font-size: 22px;
+
             font-weight: bold;
+
             margin: 20px 0;
+
             color: #16884d;
         }
 
+
         .close-cart {
+
             float: right;
+
             border: none;
-            background: #b52b35;
+
+            background-color: #b52b35;
+
             color: white;
+
             padding: 8px 12px;
+
             border-radius: 5px;
         }
 
 
-        /* =========================
+        /* =====================================
            CHECKOUT
-        ========================= */
+        ====================================== */
 
         #checkout {
+
             display: none;
+
             max-width: 700px;
+
             margin: 40px auto;
+
             padding: 30px;
-            background: white;
+
+            background-color: white;
+
             border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.12);
+
+            box-shadow:
+                0 5px 20px rgba(0,0,0,0.12);
         }
 
+
         #checkout h2 {
+
             color: #b52b35;
         }
 
+
         .checkout-section {
+
             margin: 25px 0;
         }
 
+
         .checkout-section h3 {
+
             color: #16884d;
         }
 
+
         .checkout-section input,
-        .checkout-section textarea,
-        .checkout-section select {
+        .checkout-section textarea {
+
             width: 100%;
+
             padding: 12px;
+
             margin: 7px 0;
+
             border: 1px solid #ccc;
+
             border-radius: 7px;
         }
 
+
         .payment-options {
+
             display: flex;
+
             gap: 15px;
         }
 
+
         .payment-card {
+
             flex: 1;
+
             border: 2px solid #ddd;
+
             padding: 15px;
+
             border-radius: 10px;
+
             cursor: pointer;
+
             text-align: center;
         }
 
+
         .payment-card:hover {
+
             border-color: #16884d;
         }
 
+
         .payment-card input {
+
             width: auto;
         }
 
+
         #cardInformation {
+
             display: none;
         }
 
 
-        /* =========================
+        /* =====================================
            CONFIRMACIÓN
-        ========================= */
+        ====================================== */
 
         #confirmation {
+
             display: none;
+
             text-align: center;
+
             max-width: 600px;
+
             margin: 100px auto;
-            background: white;
+
+            background-color: white;
+
             padding: 50px;
+
             border-radius: 20px;
-            box-shadow: 0 5px 25px rgba(0,0,0,0.15);
+
+            box-shadow:
+                0 5px 25px rgba(0,0,0,0.15);
         }
 
+
         .check {
+
             font-size: 70px;
+
             color: #16884d;
         }
 
+
         #confirmation h1 {
+
             color: #b52b35;
         }
 
 
-        /* =========================
-           MENSAJE PRODUCTO
-        ========================= */
+        /* =====================================
+           NOTIFICACIÓN
+        ====================================== */
 
         #notification {
+
             position: fixed;
+
             top: 25px;
+
             right: 25px;
-            background: #16884d;
+
+            background-color: #16884d;
+
             color: white;
+
             padding: 15px 25px;
+
             border-radius: 8px;
+
             display: none;
+
             z-index: 2000;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+
+            box-shadow:
+                0 5px 15px rgba(0,0,0,0.2);
         }
 
 
-        /* =========================
+        /* =====================================
            RESPONSIVE
-        ========================= */
+        ====================================== */
 
         @media (max-width: 850px) {
 
             header {
+
                 padding: 30px;
             }
 
+
             nav {
+
                 padding: 15px 30px;
+
                 flex-wrap: wrap;
             }
 
+
             .menu-content {
+
                 width: 100%;
             }
 
+
             .pizza-large {
+
                 position: relative;
+
                 right: auto;
+
                 top: auto;
+
                 width: 300px;
+
                 height: 300px;
+
                 display: block;
+
                 margin: 30px auto;
             }
 
+
             .pizza-small {
+
                 display: block;
+
                 margin: 30px auto;
             }
+
+
+            .contact-card {
+
+                width: 90%;
+            }
+
         }
 
     </style>
+
 </head>
 
 
 <body>
 
 
-    <!-- ==================================
-         LOGIN
-    =================================== -->
+    <!-- =====================================
+         INICIO DE SESIÓN
+    ====================================== -->
 
     <div id="loginScreen">
 
         <div class="login-box">
 
             <h1>RESTAURANTE</h1>
+
             <h2>ITALIANO</h2>
 
-            <p>Bienvenido a nuestro restaurante</p>
+            <p>
+                Bienvenido a nuestro restaurante
+            </p>
+
 
             <form id="loginForm">
 
@@ -488,20 +894,31 @@
                     placeholder="Correo electrónico"
                     required>
 
+
                 <input
                     type="password"
                     id="password"
                     placeholder="Contraseña"
                     required>
 
-                <button class="main-button" type="submit">
+
+                <button
+                    class="main-button"
+                    type="submit">
+
                     INICIAR SESIÓN
+
                 </button>
 
             </form>
 
-            <button class="register-button" onclick="registerUser()">
+
+            <button
+                class="register-button"
+                onclick="registerUser()">
+
                 Crear una cuenta
+
             </button>
 
         </div>
@@ -510,11 +927,14 @@
 
 
 
-    <!-- ==================================
+    <!-- =====================================
          RESTAURANTE
-    =================================== -->
+    ====================================== -->
 
     <div id="restaurant">
+
+
+        <!-- HEADER -->
 
         <header>
 
@@ -529,40 +949,55 @@
         </header>
 
 
+
+        <!-- NAVEGACIÓN -->
+
         <nav>
 
             <button onclick="showMenu()">
                 Inicio
             </button>
 
+
             <button onclick="showMenu()">
                 Menú
             </button>
 
-            <button onclick="scrollToProducts()">
-                Platillos
+
+            <button onclick="showContact()">
+                Contacto
             </button>
 
-            <button class="cart-button" onclick="openCart()">
+
+            <button
+                class="cart-button"
+                onclick="openCart()">
+
                 🛒 Carrito
                 (<span id="cartCount">0</span>)
+
             </button>
 
         </nav>
 
 
-        <!-- ==================================
+
+        <!-- =====================================
              MENÚ
-        =================================== -->
+        ====================================== -->
 
         <main id="menu">
 
             <div class="menu-container">
 
+
+                <!-- PIZZA GRANDE -->
+
                 <img
                     src="pizza-grande.png"
                     class="pizza-large"
                     alt="Pizza italiana">
+
 
                 <div class="menu-content">
 
@@ -571,60 +1006,92 @@
                     </h2>
 
 
-                    <!-- PRODUCTO 1 -->
+                    <!-- PIZZA MARGARITA -->
 
                     <div class="product">
 
                         <h3>
+
                             Pizza Margarita
-                            <span class="price">$180</span>
+
+                            <span class="price">
+                                $180
+                            </span>
+
                         </h3>
+
 
                         <p>
                             Pizza preparada con tomate,
                             queso mozzarella y albahaca fresca.
                         </p>
 
+
                         <button
                             class="add-button"
-                            onclick="addToCart('Pizza Margarita', 180)">
+                            onclick="addToCart(
+                                'Pizza Margarita',
+                                180
+                            )">
+
                             🛒 Agregar al carrito
+
                         </button>
 
                     </div>
 
 
-                    <!-- PRODUCTO 2 -->
+
+                    <!-- PIZZA PEPPERONI -->
 
                     <div class="product">
 
                         <h3>
+
                             Pizza Pepperoni
-                            <span class="price">$200</span>
+
+                            <span class="price">
+                                $200
+                            </span>
+
                         </h3>
+
 
                         <p>
                             Pizza con queso mozzarella,
                             salsa de tomate y pepperoni.
                         </p>
 
+
                         <button
                             class="add-button"
-                            onclick="addToCart('Pizza Pepperoni', 200)">
+                            onclick="addToCart(
+                                'Pizza Pepperoni',
+                                200
+                            )">
+
                             🛒 Agregar al carrito
+
                         </button>
 
                     </div>
 
 
-                    <!-- PRODUCTO 3 -->
+
+                    <!-- CANNELLONI -->
 
                     <div class="product">
 
                         <h3>
+
                             Cannelloni
-                            <span class="price">$250</span>
+
+                            <span class="price">
+                                $250
+                            </span>
+
                         </h3>
+
 
                         <p>
                             Pasta rellena con carne de res
@@ -632,60 +1099,96 @@
                             de tomate y queso.
                         </p>
 
+
                         <button
                             class="add-button"
-                            onclick="addToCart('Cannelloni', 250)">
+                            onclick="addToCart(
+                                'Cannelloni',
+                                250
+                            )">
+
                             🛒 Agregar al carrito
+
                         </button>
 
                     </div>
 
 
-                    <!-- PRODUCTO 4 -->
+
+                    <!-- RAVIOLI -->
 
                     <div class="product">
 
                         <h3>
+
                             Gabbriello Ravioli
-                            <span class="price">$230</span>
+
+                            <span class="price">
+                                $230
+                            </span>
+
                         </h3>
+
 
                         <p>
-                            Ravioles preparados con una mezcla
-                            de carne y nuestra salsa especial.
+                            Ravioles preparados con una
+                            mezcla de carne y nuestra
+                            salsa especial.
                         </p>
+
 
                         <button
                             class="add-button"
-                            onclick="addToCart('Gabbriello Ravioli', 230)">
+                            onclick="addToCart(
+                                'Gabbriello Ravioli',
+                                230
+                            )">
+
                             🛒 Agregar al carrito
+
                         </button>
 
                     </div>
 
 
-                    <!-- PRODUCTO 5 -->
+
+                    <!-- MANICOTTI -->
 
                     <div class="product">
 
                         <h3>
+
                             Manicotti Parmigiano
-                            <span class="price">$190</span>
+
+                            <span class="price">
+                                $190
+                            </span>
+
                         </h3>
+
 
                         <p>
                             Pasta rellena con queso ricotta,
                             salsa de tomate y parmesano.
                         </p>
 
+
                         <button
                             class="add-button"
-                            onclick="addToCart('Manicotti Parmigiano', 190)">
+                            onclick="addToCart(
+                                'Manicotti Parmigiano',
+                                190
+                            )">
+
                             🛒 Agregar al carrito
+
                         </button>
 
                     </div>
 
+
+
+                    <!-- PIZZA PEQUEÑA -->
 
                     <img
                         src="pizza-pequena.png"
@@ -693,47 +1196,73 @@
                         alt="Pizza italiana pequeña">
 
 
-                    <!-- PRODUCTO 6 -->
+
+                    <!-- VENETIAN KEBABS -->
 
                     <div class="product">
 
                         <h3>
+
                             Venetian Kebabs
-                            <span class="price">$270</span>
+
+                            <span class="price">
+                                $270
+                            </span>
+
                         </h3>
+
 
                         <p>
                             Brochetas de carne a la parrilla
                             servidas con pasta penne.
                         </p>
 
+
                         <button
                             class="add-button"
-                            onclick="addToCart('Venetian Kebabs', 270)">
+                            onclick="addToCart(
+                                'Venetian Kebabs',
+                                270
+                            )">
+
                             🛒 Agregar al carrito
+
                         </button>
 
                     </div>
 
 
-                    <!-- PRODUCTO 7 -->
+
+                    <!-- CAVATELLI -->
 
                     <div class="product">
 
                         <h3>
+
                             Cavatelli Alla Crema
-                            <span class="price">$210</span>
+
+                            <span class="price">
+                                $210
+                            </span>
+
                         </h3>
 
+
                         <p>
-                            Pasta servida con ensalada fresca
-                            y pan de focaccia.
+                            Pasta servida con ensalada
+                            fresca y pan de focaccia.
                         </p>
+
 
                         <button
                             class="add-button"
-                            onclick="addToCart('Cavatelli Alla Crema', 210)">
+                            onclick="addToCart(
+                                'Cavatelli Alla Crema',
+                                210
+                            )">
+
                             🛒 Agregar al carrito
+
                         </button>
 
                     </div>
@@ -745,39 +1274,251 @@
         </main>
 
 
-        <!-- ==================================
+
+        <!-- =====================================
+             CONTACTO
+        ====================================== -->
+
+        <section id="contact">
+
+            <h2>
+                CONTACTO
+            </h2>
+
+
+            <p>
+                ¿Tienes alguna pregunta o quieres
+                hacer un pedido? Estamos para atenderte.
+            </p>
+
+
+
+            <!-- TELÉFONO -->
+
+            <div class="contact-card">
+
+                <h3>
+                    📞 Llámanos
+                </h3>
+
+
+                <p>
+
+                    <strong>
+                        Teléfono:
+                    </strong>
+
+                    <br>
+
+                    (55) 4567-0900
+
+                </p>
+
+
+                <a
+                    href="tel:+525545670900"
+                    class="contact-button">
+
+                    📱 Llamar al restaurante
+
+                </a>
+
+            </div>
+
+
+
+            <!-- INSTAGRAM -->
+
+            <div class="contact-card">
+
+                <h3>
+                    📸 Instagram
+                </h3>
+
+
+                <p>
+
+                    Síguenos para conocer
+                    nuestras promociones,
+                    nuevos platillos y ofertas.
+
+                </p>
+
+
+                <a
+                    href="https://www.instagram.com/"
+                    target="_blank"
+                    class="social-button">
+
+                    @MenuRestauranteMX
+
+                </a>
+
+            </div>
+
+
+
+            <!-- TWITTER -->
+
+            <div class="contact-card">
+
+                <h3>
+                    🐦 Twitter / X
+                </h3>
+
+
+                <p>
+
+                    Síguenos para recibir noticias
+                    y promociones de nuestro restaurante.
+
+                </p>
+
+
+                <a
+                    href="https://twitter.com/"
+                    target="_blank"
+                    class="social-button">
+
+                    @MenuRestauranteMX
+
+                </a>
+
+            </div>
+
+
+
+            <!-- CORREO -->
+
+            <div class="contact-card">
+
+                <h3>
+                    📧 Correo electrónico
+                </h3>
+
+
+                <p>
+                    contacto@menurestaurante.com
+                </p>
+
+
+                <a
+                    href="mailto:contacto@menurestaurante.com"
+                    class="contact-button">
+
+                    ✉️ Enviar correo
+
+                </a>
+
+            </div>
+
+
+
+            <!-- UBICACIÓN -->
+
+            <div class="contact-card">
+
+                <h3>
+                    📍 Ubicación
+                </h3>
+
+
+                <p>
+
+                    Av. Italia #123
+                    <br>
+
+                    Colonia Centro
+                    <br>
+
+                    Ciudad de México, México
+
+                </p>
+
+            </div>
+
+
+
+            <!-- HORARIO -->
+
+            <div class="contact-card">
+
+                <h3>
+                    🕐 Horario
+                </h3>
+
+
+                <p>
+
+                    Lunes - Viernes:
+                    11:00 AM - 10:00 PM
+
+                </p>
+
+
+                <p>
+
+                    Sábado - Domingo:
+                    12:00 PM - 11:00 PM
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
              CARRITO
-        =================================== -->
+        ====================================== -->
 
         <div id="cartPanel">
 
             <button
                 class="close-cart"
                 onclick="closeCart()">
+
                 X
+
             </button>
 
-            <h2>🛒 Tu carrito</h2>
+
+            <h2>
+                🛒 Tu carrito
+            </h2>
+
 
             <div id="cartItems"></div>
 
+
             <div class="cart-total">
+
                 Total:
-                $<span id="cartTotal">0</span>
+
+                $
+                <span id="cartTotal">
+                    0
+                </span>
+
             </div>
+
 
             <button
                 class="main-button"
                 onclick="goToCheckout()">
+
                 COMPLETAR COMPRA
+
             </button>
 
         </div>
 
 
-        <!-- ==================================
+
+        <!-- =====================================
              CHECKOUT
-        =================================== -->
+        ====================================== -->
 
         <section id="checkout">
 
@@ -786,7 +1527,8 @@
             </h2>
 
 
-            <!-- FORMA DE PAGO -->
+
+            <!-- PAGO -->
 
             <div class="checkout-section">
 
@@ -794,7 +1536,9 @@
                     1. Forma de pago
                 </h3>
 
+
                 <div class="payment-options">
+
 
                     <label class="payment-card">
 
@@ -805,10 +1549,13 @@
                             onchange="selectPayment('efectivo')">
 
                         💵
+
                         <br>
+
                         Efectivo
 
                     </label>
+
 
 
                     <label class="payment-card">
@@ -820,7 +1567,9 @@
                             onchange="selectPayment('tarjeta')">
 
                         💳
+
                         <br>
+
                         Tarjeta
 
                     </label>
@@ -828,7 +1577,8 @@
                 </div>
 
 
-                <!-- DATOS DE TARJETA -->
+
+                <!-- TARJETA -->
 
                 <div id="cardInformation">
 
@@ -838,15 +1588,18 @@
                         placeholder="Número de tarjeta"
                         maxlength="19">
 
+
                     <input
                         type="text"
                         id="cardName"
                         placeholder="Nombre del titular">
 
+
                     <input
                         type="text"
                         id="cardDate"
                         placeholder="Fecha de vencimiento">
+
 
                     <input
                         type="password"
@@ -859,6 +1612,7 @@
             </div>
 
 
+
             <!-- DIRECCIÓN -->
 
             <div class="checkout-section">
@@ -867,25 +1621,30 @@
                     2. Dirección de entrega
                 </h3>
 
+
                 <input
                     type="text"
                     id="street"
                     placeholder="Calle">
+
 
                 <input
                     type="text"
                     id="houseNumber"
                     placeholder="Número de casa">
 
+
                 <input
                     type="text"
                     id="neighborhood"
                     placeholder="Colonia">
 
+
                 <input
                     type="text"
                     id="city"
                     placeholder="Ciudad">
+
 
                 <input
                     type="text"
@@ -893,6 +1652,7 @@
                     placeholder="Código postal">
 
             </div>
+
 
 
             <!-- REFERENCIAS -->
@@ -903,32 +1663,39 @@
                     3. Referencias de la casa
                 </h3>
 
+
                 <input
                     type="text"
                     id="houseColor"
                     placeholder="¿De qué color es tu casa?">
+
 
                 <input
                     type="text"
                     id="outside"
                     placeholder="¿Qué hay afuera de tu casa?">
 
+
                 <input
                     type="text"
                     id="doorColor"
                     placeholder="¿De qué color es la puerta?">
+
 
                 <input
                     type="text"
                     id="doorMaterial"
                     placeholder="¿De qué material es la puerta?">
 
+
                 <textarea
                     id="references"
                     rows="4"
-                    placeholder="Otra referencia para encontrar tu casa"></textarea>
+                    placeholder="Otra referencia para encontrar tu casa">
+                </textarea>
 
             </div>
+
 
 
             <button
@@ -942,9 +1709,10 @@
         </section>
 
 
-        <!-- ==================================
+
+        <!-- =====================================
              CONFIRMACIÓN
-        =================================== -->
+        ====================================== -->
 
         <section id="confirmation">
 
@@ -952,22 +1720,30 @@
                 ✓
             </div>
 
+
             <h1>
                 ¡PEDIDO CONFIRMADO!
             </h1>
+
 
             <p>
                 Tu pedido ha sido recibido correctamente.
             </p>
 
+
             <p>
+
                 Número de pedido:
+
                 <strong id="orderNumber"></strong>
+
             </p>
+
 
             <p>
                 Gracias por comprar con nosotros.
             </p>
+
 
             <button
                 class="main-button"
@@ -982,121 +1758,175 @@
     </div>
 
 
-    <!-- NOTIFICACIÓN -->
+
+    <!-- =====================================
+         NOTIFICACIÓN
+    ====================================== -->
 
     <div id="notification">
+
         ✓ Producto agregado correctamente
+
     </div>
 
 
 
-    <!-- ==================================
+    <!-- =====================================
          JAVASCRIPT
-    =================================== -->
+    ====================================== -->
 
     <script>
 
-        /* =========================
+
+        /* =====================================
            VARIABLES
-        ========================= */
+        ====================================== */
 
         let cart = [];
 
         let selectedPayment = "";
 
 
-        /* =========================
-           LOGIN
-        ========================= */
+
+        /* =====================================
+           INICIO DE SESIÓN
+        ====================================== */
 
         document
             .getElementById("loginForm")
-            .addEventListener("submit", function(event) {
+            .addEventListener(
+                "submit",
+                function(event) {
 
-                event.preventDefault();
+                    event.preventDefault();
 
-                const email =
-                    document.getElementById("email").value;
 
-                const password =
-                    document.getElementById("password").value;
+                    const email =
+                        document.getElementById(
+                            "email"
+                        ).value;
 
-                if (email === "" || password === "") {
 
-                    alert("Completa todos los campos.");
+                    const password =
+                        document.getElementById(
+                            "password"
+                        ).value;
 
-                    return;
+
+                    if (
+                        email === "" ||
+                        password === ""
+                    ) {
+
+                        alert(
+                            "Completa todos los campos."
+                        );
+
+                        return;
+                    }
+
+
+                    localStorage.setItem(
+                        "restaurantUser",
+                        email
+                    );
+
+
+                    document
+                        .getElementById(
+                            "loginScreen"
+                        )
+                        .style.display = "none";
+
+
+                    document
+                        .getElementById(
+                            "restaurant"
+                        )
+                        .style.display = "block";
+
                 }
-
-                localStorage.setItem(
-                    "restaurantUser",
-                    email
-                );
-
-                document.getElementById("loginScreen")
-                    .style.display = "none";
-
-                document.getElementById("restaurant")
-                    .style.display = "block";
-
-            });
+            );
 
 
-        /* =========================
-           REGISTRAR USUARIO
-        ========================= */
+
+        /* =====================================
+           CREAR CUENTA
+        ====================================== */
 
         function registerUser() {
 
-            const email = prompt(
-                "Escribe tu correo electrónico:"
-            );
+            const email =
+                prompt(
+                    "Escribe tu correo electrónico:"
+                );
+
 
             if (!email) {
+
                 return;
             }
 
-            const password = prompt(
-                "Crea una contraseña:"
-            );
+
+            const password =
+                prompt(
+                    "Crea una contraseña:"
+                );
+
 
             if (!password) {
+
                 return;
             }
+
 
             localStorage.setItem(
                 "restaurantUser",
                 email
             );
 
+
             alert(
                 "Cuenta creada correctamente. Ahora puedes iniciar sesión."
             );
+
         }
 
 
-        /* =========================
-           AGREGAR PRODUCTO
-        ========================= */
+
+        /* =====================================
+           AGREGAR AL CARRITO
+        ====================================== */
 
         function addToCart(name, price) {
 
             const existingProduct =
-                cart.find(product => product.name === name);
+                cart.find(
+                    product =>
+                        product.name === name
+                );
+
 
             if (existingProduct) {
 
                 existingProduct.quantity++;
 
-            } else {
+            }
+
+            else {
 
                 cart.push({
+
                     name: name,
+
                     price: price,
+
                     quantity: 1
+
                 });
 
             }
+
 
             updateCart();
 
@@ -1105,87 +1935,110 @@
         }
 
 
-        /* =========================
+
+        /* =====================================
            ACTUALIZAR CARRITO
-        ========================= */
+        ====================================== */
 
         function updateCart() {
 
             const cartItems =
-                document.getElementById("cartItems");
+                document.getElementById(
+                    "cartItems"
+                );
+
 
             const cartCount =
-                document.getElementById("cartCount");
+                document.getElementById(
+                    "cartCount"
+                );
+
 
             const cartTotal =
-                document.getElementById("cartTotal");
+                document.getElementById(
+                    "cartTotal"
+                );
 
 
             cartItems.innerHTML = "";
 
+
             let total = 0;
+
             let count = 0;
 
 
-            cart.forEach((product, index) => {
-
-                total +=
-                    product.price * product.quantity;
-
-                count += product.quantity;
+            cart.forEach(
+                (product, index) => {
 
 
-                const item =
-                    document.createElement("div");
+                    total +=
+                        product.price *
+                        product.quantity;
 
-                item.className = "cart-item";
 
-                item.innerHTML = `
+                    count +=
+                        product.quantity;
 
-                    <h3>
-                        ${product.name}
-                    </h3>
 
-                    <p>
-                        $${product.price} cada uno
-                    </p>
+                    const item =
+                        document.createElement(
+                            "div"
+                        );
 
-                    <div class="quantity-controls">
+
+                    item.className =
+                        "cart-item";
+
+
+                    item.innerHTML = `
+
+                        <h3>
+                            ${product.name}
+                        </h3>
+
+                        <p>
+                            $${product.price} cada uno
+                        </p>
+
+                        <div class="quantity-controls">
+
+                            <button
+                                onclick="changeQuantity(${index}, -1)">
+                                -
+                            </button>
+
+                            <strong>
+                                ${product.quantity}
+                            </strong>
+
+                            <button
+                                onclick="changeQuantity(${index}, 1)">
+                                +
+                            </button>
+
+                        </div>
+
+                        <p>
+                            Subtotal:
+                            $${product.price * product.quantity}
+                        </p>
 
                         <button
-                            onclick="changeQuantity(${index}, -1)">
-                            -
+                            class="delete-button"
+                            onclick="removeProduct(${index})">
+
+                            Eliminar
+
                         </button>
 
-                        <strong>
-                            ${product.quantity}
-                        </strong>
+                    `;
 
-                        <button
-                            onclick="changeQuantity(${index}, 1)">
-                            +
-                        </button>
 
-                    </div>
+                    cartItems.appendChild(item);
 
-                    <p>
-                        Subtotal:
-                        $${product.price * product.quantity}
-                    </p>
-
-                    <button
-                        class="delete-button"
-                        onclick="removeProduct(${index})">
-
-                        Eliminar
-
-                    </button>
-
-                `;
-
-                cartItems.appendChild(item);
-
-            });
+                }
+            );
 
 
             cartCount.textContent = count;
@@ -1195,78 +2048,103 @@
         }
 
 
-        /* =========================
-           CAMBIAR CANTIDAD
-        ========================= */
 
-        function changeQuantity(index, amount) {
+        /* =====================================
+           CAMBIAR CANTIDAD
+        ====================================== */
+
+        function changeQuantity(
+            index,
+            amount
+        ) {
 
             cart[index].quantity += amount;
 
-            if (cart[index].quantity <= 0) {
+
+            if (
+                cart[index].quantity <= 0
+            ) {
 
                 cart.splice(index, 1);
 
             }
+
 
             updateCart();
 
         }
 
 
-        /* =========================
-           ELIMINAR
-        ========================= */
+
+        /* =====================================
+           ELIMINAR PRODUCTO
+        ====================================== */
 
         function removeProduct(index) {
 
             const productName =
                 cart[index].name;
 
+
             cart.splice(index, 1);
+
 
             updateCart();
 
+
             showNotification(
-                productName + " eliminado del carrito"
+                productName +
+                " eliminado del carrito"
             );
 
         }
 
 
-        /* =========================
+
+        /* =====================================
            ABRIR CARRITO
-        ========================= */
+        ====================================== */
 
         function openCart() {
 
             updateCart();
 
-            document.getElementById("cartPanel")
+
+            document
+                .getElementById(
+                    "cartPanel"
+                )
                 .style.display = "block";
 
         }
 
 
-        /* =========================
+
+        /* =====================================
            CERRAR CARRITO
-        ========================= */
+        ====================================== */
 
         function closeCart() {
 
-            document.getElementById("cartPanel")
+            document
+                .getElementById(
+                    "cartPanel"
+                )
                 .style.display = "none";
 
         }
 
 
-        /* =========================
+
+        /* =====================================
            COMPLETAR COMPRA
-        ========================= */
+        ====================================== */
 
         function goToCheckout() {
 
-            if (cart.length === 0) {
+            if (
+                cart.length === 0
+            ) {
 
                 alert(
                     "Tu carrito está vacío."
@@ -1275,26 +2153,51 @@
                 return;
             }
 
+
             closeCart();
 
-            document.getElementById("menu")
+
+            document
+                .getElementById(
+                    "menu"
+                )
                 .style.display = "none";
 
-            document.getElementById("checkout")
+
+            document
+                .getElementById(
+                    "contact"
+                )
+                .style.display = "none";
+
+
+            document
+                .getElementById(
+                    "checkout"
+                )
                 .style.display = "block";
 
-            window.scrollTo(0, 0);
+
+            window.scrollTo(
+                0,
+                0
+            );
 
         }
 
 
-        /* =========================
-           FORMA DE PAGO
-        ========================= */
 
-        function selectPayment(payment) {
+        /* =====================================
+           SELECCIONAR PAGO
+        ====================================== */
 
-            selectedPayment = payment;
+        function selectPayment(
+            payment
+        ) {
+
+            selectedPayment =
+                payment;
+
 
             const cardInformation =
                 document.getElementById(
@@ -1302,58 +2205,88 @@
                 );
 
 
-            if (payment === "tarjeta") {
+            if (
+                payment === "tarjeta"
+            ) {
 
-                cardInformation.style.display = "block";
+                cardInformation
+                    .style
+                    .display = "block";
 
-            } else {
+            }
 
-                cardInformation.style.display = "none";
+            else {
+
+                cardInformation
+                    .style
+                    .display = "none";
 
             }
 
         }
 
 
-        /* =========================
+
+        /* =====================================
            CONFIRMAR PEDIDO
-        ========================= */
+        ====================================== */
 
         function confirmOrder() {
 
-            if (selectedPayment === "") {
+            if (
+                selectedPayment === ""
+            ) {
 
                 alert(
                     "Selecciona una forma de pago."
                 );
 
                 return;
-
             }
 
 
             const street =
-                document.getElementById("street").value;
+                document.getElementById(
+                    "street"
+                ).value;
+
 
             const houseNumber =
-                document.getElementById("houseNumber").value;
+                document.getElementById(
+                    "houseNumber"
+                ).value;
+
 
             const neighborhood =
-                document.getElementById("neighborhood").value;
+                document.getElementById(
+                    "neighborhood"
+                ).value;
+
 
             const city =
-                document.getElementById("city").value;
+                document.getElementById(
+                    "city"
+                ).value;
+
 
             const postalCode =
-                document.getElementById("postalCode").value;
+                document.getElementById(
+                    "postalCode"
+                ).value;
 
 
             if (
+
                 street === "" ||
+
                 houseNumber === "" ||
+
                 neighborhood === "" ||
+
                 city === "" ||
+
                 postalCode === ""
+
             ) {
 
                 alert(
@@ -1361,7 +2294,6 @@
                 );
 
                 return;
-
             }
 
 
@@ -1372,36 +2304,56 @@
                 );
 
 
-            document.getElementById("orderNumber")
-                .textContent = "#" + orderNumber;
+            document
+                .getElementById(
+                    "orderNumber"
+                )
+                .textContent =
+                "#" + orderNumber;
 
 
-            document.getElementById("checkout")
+            document
+                .getElementById(
+                    "checkout"
+                )
                 .style.display = "none";
 
-            document.getElementById("confirmation")
+
+            document
+                .getElementById(
+                    "confirmation"
+                )
                 .style.display = "block";
 
 
             cart = [];
 
+
             updateCart();
 
-            window.scrollTo(0, 0);
+
+            window.scrollTo(
+                0,
+                0
+            );
 
         }
 
 
-        /* =========================
-           NOTIFICACIÓN
-        ========================= */
 
-        function showNotification(message) {
+        /* =====================================
+           NOTIFICACIÓN
+        ====================================== */
+
+        function showNotification(
+            message
+        ) {
 
             const notification =
                 document.getElementById(
                     "notification"
                 );
+
 
             notification.textContent =
                 "✓ " +
@@ -1410,51 +2362,106 @@
                     "Producto agregado correctamente"
                 );
 
+
             notification.style.display =
                 "block";
 
 
-            setTimeout(function() {
+            setTimeout(
+                function() {
 
-                notification.style.display =
-                    "none";
+                    notification.style.display =
+                        "none";
 
-            }, 2000);
+                },
+                2000
+            );
 
         }
 
 
-        /* =========================
-           VOLVER AL MENÚ
-        ========================= */
+
+        /* =====================================
+           MOSTRAR MENÚ
+        ====================================== */
 
         function showMenu() {
 
-            document.getElementById("checkout")
+            document
+                .getElementById(
+                    "checkout"
+                )
                 .style.display = "none";
 
-            document.getElementById("confirmation")
+
+            document
+                .getElementById(
+                    "confirmation"
+                )
                 .style.display = "none";
 
-            document.getElementById("menu")
+
+            document
+                .getElementById(
+                    "contact"
+                )
+                .style.display = "none";
+
+
+            document
+                .getElementById(
+                    "menu"
+                )
                 .style.display = "block";
 
-            window.scrollTo(0, 0);
+
+            window.scrollTo(
+                0,
+                0
+            );
 
         }
 
 
-        /* =========================
-           IR A LOS PRODUCTOS
-        ========================= */
 
-        function scrollToProducts() {
+        /* =====================================
+           MOSTRAR CONTACTO
+        ====================================== */
+
+        function showContact() {
 
             document
-                .getElementById("platillos")
-                .scrollIntoView({
-                    behavior: "smooth"
-                });
+                .getElementById(
+                    "menu"
+                )
+                .style.display = "none";
+
+
+            document
+                .getElementById(
+                    "checkout"
+                )
+                .style.display = "none";
+
+
+            document
+                .getElementById(
+                    "confirmation"
+                )
+                .style.display = "none";
+
+
+            document
+                .getElementById(
+                    "contact"
+                )
+                .style.display = "block";
+
+
+            window.scrollTo(
+                0,
+                0
+            );
 
         }
 
